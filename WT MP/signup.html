@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | PennyWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body class="page-body">
+    <header class="site-header">
+        <a class="brand" href="index.html">PennyWise</a>
+        <nav class="site-links" aria-label="Main navigation">
+            <a href="index.html">Overview</a><a href="home.html">Dashboard</a>
+            <a href="register.html">Register</a><a href="signup.html">Sign up</a><a href="signin.html">Sign in</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
+    </header>
+
+    <main class="page-wrap">
+        <section class="auth-card">
+            <h1 class="page-title">Create an Account</h1>
+            <p class="page-intro">Enter an email and create a password to demonstrate the sign-up form.</p>
+
+            <form id="signupForm" novalidate>
+                <div class="form-field">
+                    <label for="signupEmail">Email Address</label>
+                    <input id="signupEmail" type="email" autocomplete="email" placeholder="name@example.com">
+                    <span class="error-msg" id="signupEmailError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="signupPassword">Create Password</label>
+                    <input id="signupPassword" type="password" autocomplete="new-password" placeholder="Create a strong password">
+                    <span class="error-msg" id="signupPasswordError"></span>
+                </div>
+                <label class="inline-check" for="termsConsent">
+                    <input id="termsConsent" type="checkbox">
+                    <span>I have read and agree to the Terms of Service.</span>
+                </label>
+                <button type="submit">Create Account</button>
+                <div id="signupMessage" class="form-alert" aria-live="polite" hidden></div>
+            </form>
+
+            <p class="small-note">This is a front-end project demonstration. Real account creation and secure password handling require a server-side authentication service.</p>
+            <p>Already have an account? <a href="signin.html">Sign in</a></p>
+        </section>
+    </main>
+
+    <script src="theme.js"></script>
+    <script src="validation.js"></script>
+</body>
+</html>

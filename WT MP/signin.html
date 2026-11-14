@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | PennyWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body class="page-body">
+    <header class="site-header">
+        <a class="brand" href="index.html">PennyWise</a>
+        <nav class="site-links" aria-label="Main navigation">
+            <a href="index.html">Overview</a><a href="home.html">Dashboard</a>
+            <a href="register.html">Register</a><a href="signup.html">Sign up</a><a href="signin.html">Sign in</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
+    </header>
+
+    <main class="page-wrap">
+        <section class="auth-card">
+            <h1 class="page-title">Welcome Back</h1>
+            <p class="page-intro">Enter your email and password to test the sign-in form.</p>
+
+            <form id="signinForm" novalidate>
+                <div class="form-field">
+                    <label for="signinEmail">Email Address</label>
+                    <input id="signinEmail" type="email" autocomplete="email" placeholder="name@example.com">
+                </div>
+                <div class="form-field">
+                    <label for="signinPassword">Password</label>
+                    <div class="password-row">
+                        <input id="signinPassword" type="password" autocomplete="current-password" placeholder="Enter password">
+                        <button class="secondary-button" id="showPassword" type="button">Show</button>
+                    </div>
+                </div>
+                <button type="submit">Sign In</button>
+                <div id="signinAlert" class="form-alert" role="alert" aria-live="polite" hidden></div>
+            </form>
+
+            <p class="small-note">This static demonstration checks credential format only. It does not authenticate users or transmit passwords to a server.</p>
+            <p><a href="home.html">Open dashboard demo</a> · <a href="signup.html">Create an account</a></p>
+        </section>
+    </main>
+
+    <script src="theme.js"></script>
+    <script src="validation.js"></script>
+</body>
+</html>

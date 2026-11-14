@@ -1,0 +1,144 @@
+/* Shared colour tokens and components used across PennyWise pages. */
+:root {
+    color-scheme: dark;
+    --bg: #111827;
+    --surface: #1f2937;
+    --surface-soft: #263449;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --border: #374151;
+    --field: #111827;
+    --accent: #60a5fa;
+    --accent-strong: #3b82f6;
+    --success: #4ade80;
+    --danger: #f87171;
+    --warning: #fbbf24;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --surface-soft: #e2e8f0;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #cbd5e1;
+    --field: #f8fafc;
+    --accent: #2563eb;
+    --accent-strong: #1d4ed8;
+    --success: #15803d;
+    --danger: #b91c1c;
+    --warning: #a16207;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+a { color: var(--accent); }
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 16px 22px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.site-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.site-links a:hover { color: var(--accent); }
+
+button, .button-link {
+    display: inline-block;
+    border: 0;
+    border-radius: 7px;
+    padding: 11px 15px;
+    background: var(--accent-strong);
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover, .button-link:hover { filter: brightness(1.08); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.theme-toggle, .secondary-button {
+    background: var(--surface-soft);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.card, .panel, .auth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+}
+
+input, select, textarea {
+    background: var(--field);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+label { color: var(--text); }
+.small-note { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.success-message { color: var(--success); }
+.alert-message { color: var(--danger); }
+
+/* Site-wide theme variables also recolour the existing index.html tracker. */
+:root[data-theme="light"] .card,
+:root[data-theme="light"] .section,
+:root[data-theme="light"] .site-header {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+:root[data-theme="light"] .expense-category,
+:root[data-theme="light"] .empty-message,
+:root[data-theme="light"] .subtitle {
+    color: var(--muted);
+}
+
+
+/* Optional landing-page hero links and feature overview cards (FR-01). */
+.hero-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 18px 0 24px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0 24px; }
+.feature-card { padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.feature-card h3 { margin: 0 0 8px; color: var(--accent); font-size: 16px; }
+.feature-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+@media (max-width: 650px) { .feature-grid { grid-template-columns: 1fr; } }

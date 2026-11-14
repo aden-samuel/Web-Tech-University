@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | PennyWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body class="page-body">
+    <header class="site-header">
+        <a class="brand" href="index.html">PennyWise</a>
+        <nav class="site-links" aria-label="Main navigation">
+            <a href="index.html">Overview</a><a href="home.html">Dashboard</a>
+            <a href="register.html">Register</a><a href="signup.html">Sign up</a><a href="signin.html">Sign in</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
+    </header>
+
+    <main class="page-wrap">
+        <section class="auth-card">
+            <h1 class="page-title">Student Registration</h1>
+            <p class="page-intro">Complete the form. Each field is checked when you leave it and again before submission.</p>
+
+            <form id="registrationForm" novalidate>
+                <div class="form-field">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" type="text" autocomplete="name" placeholder="Enter full name">
+                    <span class="error-msg" id="fullNameError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="empId">Employee / Register ID</label>
+                    <input id="empId" type="text" placeholder="Example: URK26CS1240">
+                    <span class="error-msg" id="empIdError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email Address</label>
+                    <input id="email" type="email" autocomplete="email" placeholder="name@example.com">
+                    <span class="error-msg" id="emailError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="mobile">Mobile Number</label>
+                    <input id="mobile" type="tel" inputmode="numeric" placeholder="10-digit mobile number">
+                    <span class="error-msg" id="mobileError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="dept">Division</label>
+                    <select id="dept">
+                        <option value="">Select your division</option>
+                        <option value="CSE">Computer Science and Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                        <option value="ECE">Electronics and Communication Engineering</option>
+                        <option value="EEE">Electrical and Electronics Engineering</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error-msg" id="deptError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" autocomplete="new-password" placeholder="Create a password">
+                    <span class="error-msg" id="passwordError"></span>
+                </div>
+                <div class="form-field">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password">
+                    <span class="error-msg" id="confirmPasswordError"></span>
+                </div>
+                <div class="form-actions">
+                    <button id="registerSubmit" type="submit" disabled>Validate Registration</button>
+                    <a class="button-link secondary-button" href="signup.html">Go to Sign Up</a>
+                </div>
+                <p id="registerMessage" class="form-alert success-message" aria-live="polite"></p>
+            </form>
+            <p class="small-note">Demonstration notice: this page validates entries in the browser. It does not send or store registration details.</p>
+        </section>
+    </main>
+
+    <script src="theme.js"></script>
+    <script src="validation.js"></script>
+</body>
+</html>

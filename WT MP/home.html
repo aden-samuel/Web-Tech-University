@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | PennyWise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body class="page-body">
+    <header class="site-header">
+        <a class="brand" href="index.html">PennyWise</a>
+        <button class="mobile-menu" id="menuToggle" type="button" aria-expanded="false">☰ Menu</button>
+        <nav class="site-links" aria-label="Main navigation">
+            <a href="index.html">Overview</a><a href="home.html">Dashboard</a>
+            <a href="register.html">Register</a><a href="signup.html">Sign up</a><a href="signin.html">Sign in</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
+    </header>
+
+    <main class="page-wrap">
+        <h1 class="page-title">Expense Dashboard</h1>
+        <p class="page-intro">Manage your monthly budget and review your expense history.</p>
+
+        <div class="app-grid">
+            <aside class="sidebar panel" id="sidebar">
+                <h3>Navigation</h3>
+                <a href="#overview">Overview</a>
+                <a href="#budgetSettings">Budget Settings</a>
+                <a href="#addExpense">Add Expense</a>
+                <a href="#expenseHistory">Expense History</a>
+                <a href="index.html">Landing Page</a>
+                <a href="signin.html">Sign Out</a>
+                <p class="small-note">Your expense data is stored in this browser.</p>
+            </aside>
+
+            <section class="main-column">
+                <div class="dashboard-cards" id="overview">
+                    <div class="card"><p>Monthly Income</p><h2 class="income-value" id="incomeDisplay">₹0.00</h2></div>
+                    <div class="card"><p>Total Spent This Month</p><h2 class="spent-value" id="spentDisplay">₹0.00</h2></div>
+                    <div class="card"><p>Remaining Budget</p><h2 class="remaining-value" id="remainingDisplay">₹0.00</h2></div>
+                </div>
+
+                <section class="home-card card" id="budgetSettings">
+                    <h2>Monthly Budget Settings</h2>
+                    <div class="two-fields">
+                        <div><label for="incomeInput">Monthly Income (₹)</label><input id="incomeInput" type="number" min="0" step="0.01" placeholder="e.g. 30000"></div>
+                        <div><label for="limitInput">Monthly Spending Limit (₹)</label><input id="limitInput" type="number" min="0" step="0.01" placeholder="e.g. 10000"></div>
+                    </div>
+                    <button id="saveSettings" type="button">Save Settings</button>
+                </section>
+
+                <section class="home-card card">
+                    <h2>Budget Progress</h2>
+                    <p id="progressText">₹0 spent out of ₹0</p>
+                    <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+                    <p id="warning" class="alert-message" aria-live="polite"></p>
+                </section>
+
+                <section class="home-card card" id="addExpense">
+                    <h2>Add New Expense</h2>
+                    <label for="expenseName">Description</label>
+                    <input id="expenseName" type="text" placeholder="e.g. Grocery shopping">
+                    <div class="two-fields">
+                        <div><label for="expenseAmount">Amount (₹)</label><input id="expenseAmount" type="number" min="0.01" step="0.01" placeholder="e.g. 500"></div>
+                        <div><label for="expenseDate">Expense Date</label><input id="expenseDate" type="date"></div>
+                    </div>
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option>Food</option><option>Transport</option><option>Shopping</option>
+                        <option>Bills</option><option>Entertainment</option><option>Other</option>
+                    </select>
+                    <button id="addExpenseButton" type="button">Add Expense</button>
+                </section>
+
+                <section class="home-card card" id="expenseHistory">
+                    <h2>Expense History</h2>
+                    <div id="expenseList">No expenses added yet.</div>
+                    <div class="form-actions">
+                        <button id="exportButton" type="button">Export CSV</button>
+                        <button id="clearButton" class="danger-button" type="button">Clear All Expenses</button>
+                    </div>
+                </section>
+            </section>
+
+            <aside class="right-column">
+                <section class="home-card card">
+                    <h2>Quick Calculator</h2>
+                    <input class="calculator-display" id="calcDisplay" type="text" readonly aria-label="Calculator display">
+                    <div class="calculator-keys">
+                        <button class="clear" data-action="clear" type="button">C</button>
+                        <button class="operator" data-value="/" type="button">÷</button>
+                        <button class="operator" data-value="*" type="button">×</button>
+                        <button class="operator" data-value="-" type="button">−</button>
+                        <button data-value="7" type="button">7</button>
+                        <button data-value="8" type="button">8</button>
+                        <button data-value="9" type="button">9</button>
+                        <button class="operator" data-value="+" type="button">+</button>
+                        <button data-value="4" type="button">4</button>
+                        <button data-value="5" type="button">5</button>
+                        <button data-value="6" type="button">6</button>
+                        <button class="equals" data-action="equals" type="button">=</button>
+                        <button data-value="1" type="button">1</button>
+                        <button data-value="2" type="button">2</button>
+                        <button data-value="3" type="button">3</button>
+                        <button data-value="0" type="button">0</button>
+                        <button data-value="." type="button">.</button>
+                    </div>
+                    <p class="small-note">Supports addition, subtraction, multiplication and division.</p>
+                </section>
+                <section class="home-card card">
+                    <h3>Privacy Note</h3>
+                    <p class="small-note">This static version stores expense information in browser localStorage. It does not send these records to an external database. Do not use it for highly sensitive financial information.</p>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <script src="theme.js"></script>
+    <script src="calculator.js"></script>
+    <script src="chatbot.js"></script>
+    <script>
+        // Mobile navigation drawer.
+        const menuToggle = document.getElementById("menuToggle");
+        const sidebar = document.getElementById("sidebar");
+        menuToggle.addEventListener("click", function () {
+            const isOpen = sidebar.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", isOpen);
+        });
+
+        // The dashboard uses the same storage key and data format as index.html.
+        let expenses = [];
+        let income = 0;
+        let spendingLimit = 0;
+
+        function getToday() {
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, "0");
+            const day = String(today.getDate()).padStart(2, "0");
+            return today.getFullYear() + "-" + month + "-" + day;
+        }
+
+        function getCurrentMonth() {
+            return getToday().slice(0, 7);
+        }
+
+        function saveData() {
+            localStorage.setItem("pennyWiseData", JSON.stringify({ expenses, income, spendingLimit }));
+        }
+
+        function loadData() {
+            try {
+                const saved = JSON.parse(localStorage.getItem("pennyWiseData"));
+                if (saved) {
+                    expenses = Array.isArray(saved.expenses) ? saved.expenses : [];
+                    income = Number(saved.income) || 0;
+                    spendingLimit = Number(saved.spendingLimit) || 0;
+                    expenses.forEach(function (expense) {
+                        if (!expense.date) expense.date = getToday();
+                        expense.amount = Number(expense.amount) || 0;
+                    });
+                }
+            } catch (error) {
+                console.log("Saved expense data could not be read.");
+            }
+
+            document.getElementById("incomeInput").value = income;
+            document.getElementById("limitInput").value = spendingLimit;
+            document.getElementById("expenseDate").value = getToday();
+            saveData();
+            updateDashboard();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            expenses.forEach(function (expense) {
+                if (expense.date && expense.date.slice(0, 7) === getCurrentMonth()) {
+                    total += Number(expense.amount) || 0;
+                }
+            });
+            return total;
+        }
+
+        function updateDashboard() {
+            const total = calculateTotal();
+            const remaining = spendingLimit - total;
+            const percentage = spendingLimit > 0 ? total / spendingLimit * 100 : 0;
+
+            document.getElementById("incomeDisplay").textContent = "₹" + income.toFixed(2);
+            document.getElementById("spentDisplay").textContent = "₹" + total.toFixed(2);
+            document.getElementById("remainingDisplay").textContent = "₹" + remaining.toFixed(2);
+            document.getElementById("progressText").textContent = "₹" + total.toFixed(2) + " spent out of ₹" + spendingLimit.toFixed(2);
+            document.getElementById("progressBar").style.width = Math.min(percentage, 100) + "%";
+
+            const warning = document.getElementById("warning");
+            if (spendingLimit > 0 && percentage >= 100) {
+                warning.textContent = "You have exceeded your budget!";
+            } else if (spendingLimit > 0 && percentage >= 80) {
+                warning.textContent = "Warning: Only 20% of your budget remains!";
+            } else {
+                warning.textContent = "";
+            }
+
+            const list = document.getElementById("expenseList");
+            list.replaceChildren();
+            if (expenses.length === 0) {
+                list.textContent = "No expenses added yet.";
+                return;
+            }
+
+            expenses.slice().reverse().forEach(function (expense) {
+                const row = document.createElement("div");
+                row.className = "expense-row";
+                const details = document.createElement("div");
+                const name = document.createElement("strong");
+                const info = document.createElement("small");
+                const amount = document.createElement("strong");
+                name.textContent = expense.name;
+                info.textContent = expense.category + " | " + expense.date;
+                amount.textContent = "₹" + Number(expense.amount).toFixed(2);
+                details.append(name, info);
+                row.append(details, amount);
+                list.appendChild(row);
+            });
+        }
+
+        document.getElementById("saveSettings").addEventListener("click", function () {
+            const incomeText = document.getElementById("incomeInput").value;
+            const limitText = document.getElementById("limitInput").value;
+            const newIncome = Number(incomeText);
+            const newLimit = Number(limitText);
+            if (incomeText === "" || limitText === "" || !Number.isFinite(newIncome) || !Number.isFinite(newLimit) || newIncome < 0 || newLimit < 0) {
+                alert("Enter valid income and spending limit.");
+                return;
+            }
+            income = newIncome;
+            spendingLimit = newLimit;
+            saveData();
+            updateDashboard();
+        });
+
+        document.getElementById("addExpenseButton").addEventListener("click", function () {
+            const name = document.getElementById("expenseName").value.trim();
+            const amountText = document.getElementById("expenseAmount").value;
+            const amount = Number(amountText);
+            const date = document.getElementById("expenseDate").value;
+            const category = document.getElementById("category").value;
+            if (!name || amountText === "" || !Number.isFinite(amount) || amount <= 0 || !date) {
+                alert("Enter a valid description, amount and date.");
+                return;
+            }
+            expenses.push({ name, amount, category, date });
+            saveData();
+            updateDashboard();
+            document.getElementById("expenseName").value = "";
+            document.getElementById("expenseAmount").value = "";
+        });
+
+        document.getElementById("exportButton").addEventListener("click", function () {
+            if (expenses.length === 0) {
+                alert("No expenses available to export.");
+                return;
+            }
+            let csv = "Date,Description,Category,Amount\n";
+            expenses.forEach(function (expense) {
+                const name = '"' + String(expense.name).replace(/"/g, '""') + '"';
+                const category = '"' + String(expense.category).replace(/"/g, '""') + '"';
+                csv += expense.date + "," + name + "," + category + "," + expense.amount + "\n";
+            });
+            const file = new Blob([csv], { type: "text/csv" });
+            const url = URL.createObjectURL(file);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "pennywise-expenses.csv";
+            link.click();
+            URL.revokeObjectURL(url);
+        });
+
+        document.getElementById("clearButton").addEventListener("click", function () {
+            if (confirm("Are you sure you want to clear all expenses?")) {
+                expenses = [];
+                saveData();
+                updateDashboard();
+            }
+        });
+
+        loadData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Budget Calculator and Manager helps users organise expenses, monitor a monthly budget and export records.">
+    <title>Budget Calculator and Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body class="landing-page" id="top">
+
+    <!-- FR-01: Header navigation -->
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Budget Calculator and Manager home">
+            <span class="brand-mark">BCM</span>
+            <span class="brand-name">Budget Manager</span>
+        </a>
+
+        <nav class="site-links" aria-label="Main navigation">
+            <a href="#overview">Overview</a>
+            <a href="#features">Features</a>
+            <a href="#project-outline">How It Works</a>
+            <a href="home.html">Dashboard</a>
+            <a href="register.html">Register</a>
+            <a href="signin.html">Sign In</a>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" type="button">Light mode</button>
+    </header>
+
+    <main>
+        <!-- FR-01: Hero banner and call-to-action buttons -->
+        <section class="landing-hero" id="overview">
+            <div class="landing-container hero-content">
+                <p class="hero-label">PERSONAL FINANCE · SIMPLE BUDGETING</p>
+                <h1 class="hero-title">Budget Calculator <span>and Manager</span></h1>
+                <p class="hero-subtitle">
+                    A straightforward way to record everyday expenses, set a monthly spending limit
+                    and understand how much of your budget remains.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button-link" href="home.html">Open Budget Dashboard</a>
+                    <a class="button-link secondary-button" href="register.html">Get Started</a>
+                </div>
+
+                <p class="hero-note">
+                    Expense records are saved in this browser using localStorage. No external
+                    database is needed for the expense tracker.
+                </p>
+            </div>
+        </section>
+
+        <!-- FR-01: Product feature overview cards -->
+        <section class="landing-section landing-container" id="features">
+            <div class="section-heading">
+                <p class="hero-label">WHAT YOU CAN DO</p>
+                <h2>Features at a glance</h2>
+                <p>Tools for keeping everyday spending organised and visible.</p>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">₹</div>
+                    <h3>Monthly Budget</h3>
+                    <p>Enter your monthly income and choose a spending limit that suits your plan.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">＋</div>
+                    <h3>Expense Records</h3>
+                    <p>Record an expense with its description, amount, category and date.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">↗</div>
+                    <h3>Budget Warnings</h3>
+                    <p>See a warning when 80% of your monthly spending limit has been used, and another if it is exceeded.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">▤</div>
+                    <h3>Monthly Tracking</h3>
+                    <p>View current-month spending while keeping older transactions in your expense history.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">⌂</div>
+                    <h3>Browser Storage</h3>
+                    <p>Keep budget settings and expense records in the browser with localStorage.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">↓</div>
+                    <h3>CSV Export</h3>
+                    <p>Download recorded expenses in CSV format for viewing in a spreadsheet application.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FR-01: Responsive project/document outline -->
+        <section class="landing-section outline-section" id="project-outline">
+            <div class="landing-container">
+                <div class="section-heading">
+                    <p class="hero-label">APPLICATION OUTLINE</p>
+                    <h2>How the application works</h2>
+                    <p>Follow these steps to manage your monthly expenses.</p>
+                </div>
+
+                <ol class="outline-list">
+                    <li>
+                        <span class="outline-number">01</span>
+                        <div>
+                            <h3>Set your budget</h3>
+                            <p>Enter monthly income and the maximum amount you plan to spend.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="outline-number">02</span>
+                        <div>
+                            <h3>Record expenses</h3>
+                            <p>Add a description, amount, category and transaction date for each expense.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="outline-number">03</span>
+                        <div>
+                            <h3>Review your progress</h3>
+                            <p>Check monthly spending, remaining budget and automatic warning messages.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="outline-number">04</span>
+                        <div>
+                            <h3>Keep or export records</h3>
+                            <p>Return to saved records in the same browser or download them as a CSV file.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="outline-action">
+                    <a class="button-link" href="home.html">Go to the Dashboard</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <div class="landing-container">
+            <p><strong>Budget Calculator and Manager</strong></p>
+            <p class="small-note">A Web Technology micro project using HTML, CSS and JavaScript.</p>
+            <p class="small-note"><a href="#top">Back to top ↑</a></p>
+        </div>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
