@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Talent Hub | CSS Positioning Demonstration</title>
+    <link rel="stylesheet" href="Prac 6.css">
+</head>
+<body>
+
+    <div class="demo-fixed-bar">
+        <span>HR System Notice: position: fixed (Locked to top viewport during scroll)</span>
+    </div>
+
+    <div class="page-container">
+        <h1>HR Platform - Positioning Sandbox</h1>
+
+        <section class="position-section">
+            <h2> Position: Static (Default HR Flow)</h2>
+            <p>Standard employee records following normal document layout flow. Offset properties and z-index do not apply.</p>
+            <div class="box static-box">Employee Record A</div>
+            <div class="box static-box">Employee Record B</div>
+        </section>
+
+        <section class="position-section sticky-demo-section">
+            <h2> Position: Sticky (Payroll Review Threshold)</h2>
+            <p>Toggles dynamically between relative and fixed depending on your scroll position.</p>
+            
+            <div class="sticky-box">
+                Pinned Payroll Alert: STICKY element!
+            </div>
+            
+            <div class="long-scroll-content">
+            </div>
+        </section>
+
+        <section class="position-section">
+            <h2> Position: Relative (Departmental Offset)</h2>
+            <p>Positioned relative to its normal layout position, leaving its original footprint intact.</p>
+            <div class="box normal-box">Standard Department Entry</div>
+            <div class="box relative-box">Shifted Entry (relative: top 20px, left 30px)</div>
+            <div class="box normal-box">Standard Department Entry</div>
+        </section>
+
+        <section class="position-section">
+            <h2> Position: Absolute & Z-Index Layering</h2>
+            <p>Taken out of normal document flow, positioned relative to its closest positioned ancestor container.</p>
+            
+            <div class="relative-parent">
+                <span class="parent-label">Secure Department Folder (position: relative)</span>
+                
+                <div class="absolute-box abs-1">Clearance Level 1 (z-index: 1)</div>
+                <div class="absolute-box abs-2">Clearance Level 2 (z-index: 2 - overlaps Level 1)</div>
+                <p>Regular text content inside the employee review folder to demonstrate absolute positioning without affecting flow.</p>
+            </div>
+        </section>
+
+
+    </div>
+
+</body>
+</html>
