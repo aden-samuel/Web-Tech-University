@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Talent Hub | Employee Onboarding & Training Budget Form</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            margin: 0;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .portal-wrapper {
+            width: 100%;
+            max-width: 880px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .top-banner {
+            background-color: #2563eb;
+            color: #ffffff;
+            text-align: center;
+            padding: 16px 20px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .content-body {
+            padding: 30px 35px;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .resource-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            border-color: #93c5fd;
+        }
+
+        .resource-card img {
+            width: 100%;
+            height: 135px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            background-color: #e2e8f0;
+        }
+
+        .resource-card p {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .resource-price {
+            display: block;
+            margin-top: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .form-container {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            text-align: center;
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 6px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .btn-submit {
+            width: 100%;
+            max-width: 240px;
+            display: block;
+            margin: 22px auto 0 auto;
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        .divider {
+            border: 0;
+            border-top: 2px solid #2563eb;
+            margin: 26px 0 20px 0;
+        }
+
+        .error-box {
+            display: none;
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .bill-section {
+            text-align: center;
+        }
+
+        .bill-heading {
+            color: #15803d;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .total-badge {
+            background-color: #16a34a;
+            color: #ffffff;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .total-amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-wrapper">
+        <div class="top-banner">HR Hive Training Allocation</div>
+
+        <div class="content-body">
+            <div class="showcase-grid">
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80" alt="Workstation Kit">
+                    <p>Workstation Kit</p>
+                    <span class="resource-price">Rs. 300</span>
+                </div>
+
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80" alt="Compliance Training">
+                    <p>Compliance Training</p>
+                    <span class="resource-price">Rs. 200</span>
+                </div>
+
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&q=80" alt="Payroll Setup">
+                    <p>Payroll Setup</p>
+                    <span class="resource-price">Rs. 250</span>
+                </div>
+
+                <div class="resource-card">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="Leadership Workshop">
+                    <p>Leadership Workshop</p>
+                    <span class="resource-price">Rs. 350</span>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2 class="form-title">Allocate Department Units</h2>
+
+                <form id="hrAllocationForm" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <label for="qtyWorkstation">Workstation Kit (Unit Count)</label>
+                        <input type="text" id="qtyWorkstation" placeholder="Enter quantity (e.g., 2)">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="qtyCompliance">Compliance Training (Unit Count)</label>
+                        <input type="text" id="qtyCompliance" placeholder="Enter quantity (e.g., 1)">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="qtyPayroll">Payroll Setup (Unit Count)</label>
+                        <input type="text" id="qtyPayroll" placeholder="Enter quantity (e.g., 2)">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="qtyLeadership">Leadership Workshop (Unit Count)</label>
+                        <input type="text" id="qtyLeadership" placeholder="Enter quantity (e.g., 1)">
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="validateAndCalculate()">Approve Allocation</button>
+                </form>
+
+                <hr class="divider">
+
+                <div id="validationError" class="error-box"></div>
+
+                <div class="bill-section">
+                    <div class="bill-heading">Department Budget Summary!!</div>
+                    <div class="total-row">
+                        <span class="total-badge">Total Budget</span>
+                        <span class="total-amount" id="totalCostDisplay">Rs. 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateAndCalculate() {
+            const q1 = document.getElementById('qtyWorkstation').value.trim();
+            const q2 = document.getElementById('qtyCompliance').value.trim();
+            const q3 = document.getElementById('qtyPayroll').value.trim();
+            const q4 = document.getElementById('qtyLeadership').value.trim();
+
+            const errorBox = document.getElementById('validationError');
+            const totalDisplay = document.getElementById('totalCostDisplay');
+
+            if (q1 === '' || q2 === '' || q3 === '' || q4 === '') {
+                errorBox.style.display = 'block';
+                errorBox.textContent = 'Validation Error: All unit fields must be filled (enter 0 if none required).';
+                totalDisplay.textContent = 'Rs. 0';
+                return;
+            }
+
+            const numberPattern = /^[0-9]+$/;
+            if (!numberPattern.test(q1) || !numberPattern.test(q2) || !numberPattern.test(q3) || !numberPattern.test(q4)) {
+                errorBox.style.display = 'block';
+                errorBox.textContent = 'Validation Error: Please enter valid positive numbers only (no letters or symbols).';
+                totalDisplay.textContent = 'Rs. 0';
+                return;
+            } else {
+                errorBox.style.display = 'none';
+
+                const totalCost = (parseInt(q1, 10) * 300) +
+                                  (parseInt(q2, 10) * 200) +
+                                  (parseInt(q3, 10) * 250) +
+                                  (parseInt(q4, 10) * 350);
+
+                totalDisplay.textContent = 'Rs. ' + totalCost;
+            }
+        }
+    </script>
+
+</body>
+</html>
