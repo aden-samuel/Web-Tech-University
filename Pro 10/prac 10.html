@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Talent Hub | DOM Elements & Interactions</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            margin: 0;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .portal-wrapper {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid #2563eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            padding: 35px;
+            box-sizing: border-box;
+        }
+
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+        }
+
+        .portal-header h1 {
+            font-size: 22px;
+            margin: 0 0 4px 0;
+        }
+
+        .portal-header p {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 44px;
+            width: 210px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .dropdown-menu.visible {
+            display: block;
+        }
+
+        .dropdown-item {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #f1f5f9;
+            padding: 11px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #1e293b;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #eff6ff;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .section-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            color: #1e293b;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        input[type="text"], select {
+            flex: 1;
+            min-width: 180px;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .btn {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn-secondary:hover {
+            background-color: #eff6ff;
+        }
+
+        .btn-danger {
+            background-color: #dc2626;
+        }
+
+        .btn-danger:hover {
+            background-color: #b91c1c;
+        }
+
+        .status-banner {
+            padding: 12px 14px;
+            border-radius: 6px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .timer-display {
+            font-size: 19px;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 6px 0 14px 0;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            border-top: 4px solid #2563eb;
+            padding: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-card h2 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+        }
+
+        .modal-card p {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-wrapper">
+        <header class="portal-header">
+            <div>
+                <h1>HR Hive</h1>
+                <p>Dynamic form validation, menu toggling, modal display, and live session timers.</p>
+            </div>
+
+            <div class="dropdown-wrapper">
+                <button class="btn btn-secondary" id="menuToggleBtn" onclick="toggleHrMenu()">HR Quick Actions &#9662;</button>
+                <div class="dropdown-menu" id="hrDropdownMenu">
+                    <button class="dropdown-item" onclick="openHrModal('Employee Onboarding', 'Launch the digital onboarding checklist and IT access request for new hires.')">Launch Onboarding</button>
+                    <button class="dropdown-item" onclick="openHrModal('Leave Policy Summary', 'Full-time staff accrue 20 days of annual paid leave and 10 sick days per calendar year.')">View Leave Policy</button>
+                    <button class="dropdown-item" onclick="openHrModal('Payroll Cutoff Alert', 'All departmental timesheets must be approved by the 25th of each month.')">Payroll Schedule</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="section-box">
+            <h3>Employee Department Assignment (Interactive Form &amp; Auto-Reset Timer)</h3>
+            <form id="hrAssignForm" onsubmit="handleAssignment(event)">
+                <div class="form-row">
+                    <input type="text" id="empNameInput" placeholder="Enter employee full name...">
+                    <select id="deptSelect">
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Finance & Payroll">Finance &amp; Payroll</option>
+                    </select>
+                    <button type="submit" class="btn" onclick="validateAndAssign()">Assign</button>
+                    <button type="button" class="btn btn-secondary" onclick="keepBannerVisible()">Pin Notice</button>
+                </div>
+            </form>
+            <div id="domStatusBanner" class="status-banner">Enter an employee name above to validate and assign a department.</div>
+        </div>
+
+        <div class="section-box" style="margin-bottom: 0;">
+            <h3>HR Portal Active Shift Monitor (<code>setInterval</code> / <code>clearInterval</code>)</h3>
+            <div id="shiftTimerText" class="timer-display">Active Shift Time: 0s</div>
+            <div class="form-row" style="margin-bottom: 0;">
+                <button class="btn" onclick="startShiftClock()">Clock In (Start)</button>
+                <button class="btn btn-danger" onclick="stopShiftClock()">Clock Out (Stop)</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="hrModalOverlay">
+        <div class="modal-card">
+            <h2 id="modalHeading">HR Action</h2>
+            <p id="modalBodyText">Details appear here.</p>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button class="btn" onclick="closeHrModal()">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let bannerTimeout = null;
+        let shiftInterval = null;
+        let shiftSeconds = 0;
+
+        function toggleHrMenu() {
+            const dropdown = document.querySelector('#hrDropdownMenu');
+            dropdown.classList.toggle('visible');
+        }
+
+        function openHrModal(title, message) {
+            document.querySelector('#hrDropdownMenu').classList.remove('visible');
+            document.getElementById('modalHeading').textContent = title;
+            document.getElementById('modalBodyText').textContent = message;
+            document.getElementById('hrModalOverlay').classList.add('open');
+        }
+
+        function closeHrModal() {
+            document.querySelector('#hrModalOverlay').classList.remove('open');
+        }
+
+        function handleAssignment(event) {
+            event.preventDefault();
+        }
+
+        function validateAndAssign() {
+            const nameInput = document.querySelector('#empNameInput');
+            const deptSelect = document.querySelector('#deptSelect');
+            const banner = document.getElementById('domStatusBanner');
+            const empName = nameInput.value.trim();
+
+            clearTimeout(bannerTimeout);
+
+            if (empName === '') {
+                banner.textContent = 'Validation Error: Employee name cannot be empty.';
+                banner.style.backgroundColor = '#fee2e2';
+                banner.style.borderColor = '#fca5a5';
+                banner.style.color = '#991b1b';
+                nameInput.focus();
+                return;
+            }
+
+            banner.textContent = `Success: ${empName} assigned to ${deptSelect.value}. (Auto-clears in 5s)`;
+            banner.style.backgroundColor = '#dcfce7';
+            banner.style.borderColor = '#86efac';
+            banner.style.color = '#166534';
+
+            bannerTimeout = setTimeout(() => {
+                banner.textContent = 'Enter an employee name above to validate and assign a department.';
+                banner.style.backgroundColor = '#eff6ff';
+                banner.style.borderColor = '#bfdbfe';
+                banner.style.color = '#1e40af';
+            }, 5000);
+        }
+
+        function keepBannerVisible() {
+            if (bannerTimeout) {
+                clearTimeout(bannerTimeout);
+                bannerTimeout = null;
+                const banner = document.querySelector('#domStatusBanner');
+                banner.textContent += ' [Notice Pinned]';
+            }
+        }
+
+        function startShiftClock() {
+            if (shiftInterval !== null) return;
+            const timerEl = document.querySelector('#shiftTimerText');
+            shiftInterval = setInterval(() => {
+                shiftSeconds++;
+                timerEl.textContent = `Active Shift Time: ${shiftSeconds}s`;
+            }, 1000);
+        }
+
+        function stopShiftClock() {
+            clearInterval(shiftInterval);
+            shiftInterval = null;
+        }
+    </script>
+
+</body>
+</html>
