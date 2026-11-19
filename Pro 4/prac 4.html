@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Text Styles and Layouts - Practicum 4</title>
+    <link rel="stylesheet" href="Prac 4.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 40px;
+            color: #1e293b;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 750px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .layout {
+            display: flex;
+            gap: 15px;
+        }
+
+        .box {
+            flex: 1;
+            border: 1px solid #9333ea;
+            border-radius: 8px;
+            background-color: #faf5ff;
+            padding: 20px;
+            min-height: 140px;
+        }
+
+        .sidebar-text {
+            font-style: italic;
+            line-height: 1.6;
+            color: #581c87;
+        }
+
+        .main-text {
+            line-height: 1.6;
+            font-size: 14px;
+            color: #6b21a8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 style="color: #1d4ed8; font-size: 20px; margin-bottom: 12px;">HR Workforce Layout & Typography</h2>
+
+        <p class="intro" style="color: #475569; font-size: 15px; margin-bottom: 20px;">
+            This layout demonstrates comprehensive text styling, custom borders, border radii, and color palettes.
+        </p>
+
+        <div class="layout">
+            <div class="box">
+                <h3 style="margin-top:0; font-size: 17px; color: #6b21a8;">Sidebar Module</h3>
+                <p class="sidebar-text">
+                    Staff engagement metrics and retention tracking indicators for the current review cycle.
+                </p>
+            </div>
+
+            <div class="box">
+                <h3 style="margin-top:0; font-size: 17px; color: #6b21a8;">Main Content Area</h3>
+                <p class="main-text">
+                    REVIEW QUARTERLY PERFORMANCE OBJECTIVES, ALIGN DEPARTMENTAL OKRS, AND FINALIZE COMPENSATION BENCHMARKS.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
